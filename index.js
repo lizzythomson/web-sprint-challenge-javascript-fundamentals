@@ -107,7 +107,13 @@ const zooAnimals = [
   */
 
 function animalNames(array) {
-  return array.forEach();
+  const displayNames = [];
+  array.forEach(function (item) {
+    displayNames.push(
+      `name: ${item.animal_name}, scientific: ${item.scientific_name}`
+    );
+  });
+  return displayNames;
 }
 
 /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -116,17 +122,25 @@ function animalNames(array) {
   For example: ['jackal, asiatic', .....]
   */
 
-function lowerCaseNames(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lowerCaseNames(array) {
+  const lowerCaseNames = array.map((item) => {
+    return item.animal_name.toLowerCase();
+  });
+  return lowerCaseNames;
 }
+
+// console.log(lowerCaseNames(zooAnimals));
 
 /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-function lowPopulationAnimals(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lowPopulationAnimals(array) {
+  const lowPopAnimals = array.filter((item) => {
+    return item.population < 5;
+  });
+  return lowPopAnimals;
 }
 
 /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -135,8 +149,11 @@ function lowPopulationAnimals(/*Your Code Here*/) {
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-function USApop(/*Your Code Here*/) {
-  /*Your Code Here*/
+function USApop(array) {
+  const totalPop = array.reduce(function (accu, item) {
+    return accu + item.population;
+  }, 0);
+  return totalPop;
 }
 
 // 🦁🦁🦁 Callbacks 🦁🦁🦁
@@ -147,7 +164,7 @@ function USApop(/*Your Code Here*/) {
  * The consume function should return the invocation of cb, passing a and b into cb as arguments
  */
 
-function consume(/*Your Code Here */) {
+function consume(a, b, cd) {
   /*Your Code Here */
 }
 
